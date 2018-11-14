@@ -12,7 +12,7 @@ ele_demvotes <- by(election_data,election_data$fips,FUN=function(x){sum(x$votes)
 
 data <- merge(county_data[order(county_data$fips),],election_data[which(election_data$candidate=="Bernie Sanders"),c("fips","fraction_votes")],by="fips")
 
-#Creating democrat dummy per county, nonfarm employment rate estimate, and voting participation per county variable
+#Creating nonfarm employment rate estimate, veteran rate, and voting participation per county variable
 data$ele_demvotes <- ele_demvotes
 data$ele_demvotpart <- (data$ele_demvotes/(data$pop_14*(1-(data$pop_under18_14/100))))*100
 data$eco_nfemp_13 <- (data$eco_nfemptot_13/data$pop_14)*100
